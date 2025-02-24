@@ -43,7 +43,7 @@ cd csv-upload-app
 
 -> Install npm dependencies:
 
-Bash
+Bash:
 
 npm install
 
@@ -68,6 +68,7 @@ Start the Next.js Development Server:
 
 Bash:
 npm run dev
+
 This will start the Next.js development server, typically on http://localhost:3000.
 
 -> Start the Background Worker:
@@ -76,6 +77,7 @@ This will start the Next.js development server, typically on http://localhost:30
 
 Bash:
 npm run worker:dev
+
 or
 
 Bash:
