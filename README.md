@@ -33,62 +33,63 @@ Before running this application, ensure you have the following installed:
 
 Installation and Setup:
 
-Clone the repository: If you have a repository, clone it to your local machine:
+-> Clone the repository: If you have a repository, clone it to your local machine:
 
-Bash:
+-> Bash:
 
 git clone [your-repository-url]
 cd csv-upload-app
 
 
-Install npm dependencies:
+-> Install npm dependencies:
 
 Bash
 
 npm install
-Set up Environment Variables:
 
-Create a file named .env.local in the root directory of your project.
+-> Set up Environment Variables:
 
-Add the following environment variables to .env.local. Important: Replace https://jsonplaceholder.typicode.com/users with your actual API endpoint for adding users if you are not just testing with a mock API.
+-> Create a file named .env.local in the root directory of your project.
 
-# Optional: Override Redis URL if your Redis server is not on localhost:6379
-# REDIS_URL=redis://your-redis-host:your-redis-port
+-> Add the following environment variables to .env.local. Important: Replace https://jsonplaceholder.typicode.com/users with your actual API endpoint for adding users if you are not just testing with a mock API.
 
-# Set your actual API endpoint here (replace the placeholder)
-API_ENDPOINT=[https://jsonplaceholder.typicode.com/users](https://jsonplaceholder.typicode.com/users)
-Start Redis Server: Ensure your Redis server is running. If you installed Redis locally using default settings, it should be running on localhost:6379.
+-> Optional: Override Redis URL if your Redis server is not on localhost:6379
+-> REDIS_URL=redis://your-redis-host:your-redis-port
 
-Running the Application
+-> Set your actual API endpoint here (replace the placeholder)
+-> API_ENDPOINT=[https://jsonplaceholder.typicode.com/users](https://jsonplaceholder.typicode.com/users)
+
+-> Start Redis Server: Ensure your Redis server is running. If you installed Redis locally using default settings, it should be running on localhost:6379.
+
+-> Running the Application
 Start the Next.js Development Server:
 
-Open a terminal in your project directory and run:
+-> Open a terminal in your project directory and run:
 
-Bash
-
+Bash:
 npm run dev
 This will start the Next.js development server, typically on http://localhost:3000.
 
-Start the Background Worker:
+-> Start the Background Worker:
 
-Open a new terminal in your project directory and run the worker script:
+-> Open a new terminal in your project directory and run the worker script:
 
-Bash
-
+Bash:
 npm run worker:dev
 or
 
-Bash
-
+Bash:
 node worker.js
-You should see the message User queue worker started in the terminal. Keep this terminal running.
 
-Access the Frontend:
+-> You should see the message User queue worker started in the terminal. Keep this terminal running.
 
-Open your web browser and go to http://localhost:3000. You should see the "CSV File Upload" UI.
+-> Access the Frontend:
 
-Testing the Application
-Create a Sample CSV File: Create a CSV file (e.g., users.csv) with columns "name" and "email". Example content:
+-> Open your web browser and go to http://localhost:3000. You should see the "CSV File Upload" UI.
+
+Testing the Application:
+
+-> Create a Sample CSV File: Create a CSV file (e.g., users.csv) with columns "name" and "email". Example content:
 
 name,email
 John Doe,john.doe@example.com
@@ -97,14 +98,15 @@ Invalid User,invalid-email-format # Row with invalid email
 Missing Name,,valid@email.com      # Row with missing name
 Upload the CSV File:
 
-In your browser at http://localhost:3000, use the file input to select your users.csv file.
+-> In your browser at http://localhost:3000, use the file input to select your users.csv file.
 Click the "Upload CSV" button.
+
 Observe Feedback:
 
-Frontend: You should see a status message indicating success or failure, and any validation errors if present.
+-> Frontend: You should see a status message indicating success or failure, and any validation errors if present.
 Worker Terminal: Check the terminal where you started worker.js. You should see logs indicating:
 "Users being processed."
 
-Success or failure messages for API requests (if using a real API or jsonplaceholder mock).
-Error messages if API requests fail or for CSV validation issues.
-Verify API Calls (if using a real API): If you are using a real external API (and not jsonplaceholder), check your API logs or data to confirm that successful user creation requests were made. With jsonplaceholder, you can observe the successful HTTP status codes in the worker logs, but no actual data is persisted.
+-> Success or failure messages for API requests (if using a real API or jsonplaceholder mock).
+-> Error messages if API requests fail or for CSV validation issues.
+-> Verify API Calls (if using a real API): If you are using a real external API (and not jsonplaceholder), check your API logs or data to confirm that successful user creation requests were made. With jsonplaceholder, you can observe the successful HTTP status codes in the worker logs, but no actual data is persisted.
