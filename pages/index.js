@@ -81,20 +81,27 @@ const styles = {
         alignItems: 'center',
         padding: '20px',
         fontFamily: 'Arial, sans-serif',
-        backgroundColor: '#f4f7fa', // Light background
+        backgroundColor: '#f4f7fa', // Light fallback background color
+        backgroundImage: `url('/richard-horvath-cPccYbPrF-A-unsplash.jpg')`, // Path to your image in 'public'
+        backgroundSize: 'cover', // Cover the entire container
+        backgroundRepeat: 'no-repeat', // No tiling
+        backgroundPosition: 'center center', // Center the image
         minHeight: '100vh',
+        // Optional: if you want a fixed background (parallax effect)
+        // backgroundAttachment: 'fixed',
     },
     heading: {
         fontSize: '2.5em',
         fontWeight: 'bold',
         marginBottom: '20px',
-        color: '#333',
+        color: 'white',
+        textShadow: '1px 1px 2px rgba(0,0,0,0.1)', // Optional: subtle text shadow for readability
     },
     uploadCard: {
-        backgroundColor: 'white',
+        backgroundColor: 'rgba(255, 255, 255, 0.9)', // Slightly transparent white for card
         padding: '30px',
         borderRadius: '10px',
-        boxShadow: '0 4px 8px rgba(0,0,0,0.05)', // Soft shadow
+        boxShadow: '0 4px 8px rgba(0,0,0,0.05)',
         width: '80%',
         maxWidth: '600px',
         textAlign: 'center',
@@ -111,18 +118,18 @@ const styles = {
         borderRadius: '8px',
         textAlign: 'center',
         cursor: 'pointer',
-        backgroundColor: '#eee',
+        backgroundColor: 'rgba(238, 238, 238, 0.8)', // Slightly transparent light grey
         color: '#555',
         transition: 'background-color 0.2s ease',
         ':hover': {
-            backgroundColor: '#ddd',
+            backgroundColor: 'rgba(221, 221, 221, 0.8)', // Slightly darker transparent grey on hover
         },
     },
     fileInput: {
         display: 'none', // Hide default file input
     },
     uploadButton: {
-        backgroundColor: '#007bff', // Primary blue
+        backgroundColor: '#007bff',
         color: 'white',
         padding: '12px 24px',
         border: 'none',
@@ -132,11 +139,11 @@ const styles = {
         fontWeight: 'bold',
         transition: 'background-color 0.2s ease',
         ':hover': {
-            backgroundColor: '#0056b3', // Darker blue on hover
+            backgroundColor: '#0056b3',
         },
     },
     uploadButtonDisabled: {
-        backgroundColor: '#6c757d', // Grey for disabled state
+        backgroundColor: '#6c757d',
         color: 'white',
         padding: '12px 24px',
         border: 'none',
@@ -149,7 +156,7 @@ const styles = {
         marginTop: '20px',
         padding: '10px 15px',
         borderRadius: '8px',
-        backgroundColor: '#e0f7fa', // Very light cyan background for messages
+        backgroundColor: 'rgba(224, 247, 250, 0.8)', // Slightly transparent light cyan
         borderColor: '#b2ebf2',
         borderWidth: '1px',
         borderStyle: 'solid',
